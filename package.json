@@ -51,11 +51,11 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/janosorcsik/hunsorters.git"
+		"url": "git+https://github.com/janosorcsik/hunsorter.git"
 	},
 	"author": "János Orcsik",
 	"bugs": {
-		"url": "https://github.com/janosorcsik/hunsorters/issues"
+		"url": "https://github.com/janosorcsik/hunsorter/issues"
 	},
-	"homepage": "https://github.com/janosorcsik/hunsorters#readme"
+	"homepage": "https://github.com/janosorcsik/hunsorter#readme"
 }
