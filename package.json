@@ -1,7 +1,7 @@
 {
 	"name": "hunsorter",
 	"description": "Sort by Hungarian ABC",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"source": "src/main.ts",
 	"main": "dist/main.umd.js",
 	"module": "dist/main.modern.module.js",
@@ -50,12 +50,12 @@
 		"registry": "https://registry.npmjs.org"
 	},
 	"repository": {
-    "type": "git",
-    "url": "git+https://github.com/janosorcsik/hunsorters.git"
-  },
-  "author": "János Orcsik",
-  "bugs": {
-    "url": "https://github.com/janosorcsik/hunsorters/issues"
-  },
-  "homepage": "https://github.com/janosorcsik/hunsorters#readme"
+		"type": "git",
+		"url": "git+https://github.com/janosorcsik/hunsorters.git"
+	},
+	"author": "János Orcsik",
+	"bugs": {
+		"url": "https://github.com/janosorcsik/hunsorters/issues"
+	},
+	"homepage": "https://github.com/janosorcsik/hunsorters#readme"
 }
