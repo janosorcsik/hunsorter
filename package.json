@@ -34,8 +34,7 @@
 	},
 	"xo": {
 		"prettier": true,
-		"globals": [],
-		"rules": {}
+		"space": true
 	},
 	"ava": {
 		"extensions": [
