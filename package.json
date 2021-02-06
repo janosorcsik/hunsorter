@@ -1,6 +1,6 @@
 {
 	"name": "hunsorter",
-	"description": "Sort by Hungarian ABC",
+	"description": "Sorting text with the Hungarian spelling rules",
 	"version": "1.1.0",
 	"source": "src/main.ts",
 	"main": "dist/main.umd.js",
