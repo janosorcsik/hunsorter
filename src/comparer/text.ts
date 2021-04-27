@@ -3,25 +3,42 @@ import compareNumber from './number';
 import getIndex from '../characterindex';
 
 const getCharAndShift = (text: string, index: number) => {
-  let shift = 3;
+  let number = Number.parseInt(text[index], 10);
+  const isNumber = !Number.isNaN(number);
   let char = '';
-  let slicedText = text.slice(index, index + shift);
+  let shift = 1;
 
-  if (trigraphs.includes(slicedText)) {
-    char = slicedText;
+  if (isNumber) {
+    for (let i = index + 1; i < text.length; i++) {
+      if (Number.isNaN(Number.parseInt(text[i], 10))) {
+        break;
+      }
+
+      shift += 1;
+    }
+
+    const slicedText = text.slice(index, index + shift);
+    number = Number.parseInt(slicedText, 10);
   } else {
-    shift = 2;
-    slicedText = text.slice(index, index + shift);
+    shift = 3;
+    let slicedText = text.slice(index, index + shift);
 
-    if (digraphs.includes(slicedText)) {
+    if (trigraphs.includes(slicedText)) {
       char = slicedText;
     } else {
-      shift = 1;
-      char = text.charAt(index);
+      shift = 2;
+      slicedText = text.slice(index, index + shift);
+
+      if (digraphs.includes(slicedText)) {
+        char = slicedText;
+      } else {
+        shift = 1;
+        char = text.charAt(index);
+      }
     }
   }
 
-  return {shift, char};
+  return {shift, char, number, isNumber};
 };
 
 interface TextCompareData {
@@ -39,12 +56,22 @@ const compare = ({
   aIndex,
   bIndex
 }: TextCompareData): number => {
-  const {shift: aShift, char: aCurrentChar} = getCharAndShift(a, aIndex);
+  const {
+    shift: aShift,
+    char: aCurrentChar,
+    number: aNumber,
+    isNumber: aIsNumber
+  } = getCharAndShift(a, aIndex);
 
-  const {shift: bShift, char: bCurrentChar} = getCharAndShift(b, bIndex);
+  const {
+    shift: bShift,
+    char: bCurrentChar,
+    number: bNumber,
+    isNumber: bIsNumber
+  } = getCharAndShift(b, bIndex);
 
-  const aCharIndex = getIndex(aCurrentChar, removeAccent);
-  const bCharIndex = getIndex(bCurrentChar, removeAccent);
+  const aCharIndex = aIsNumber ? aNumber : getIndex(aCurrentChar, removeAccent);
+  const bCharIndex = bIsNumber ? bNumber : getIndex(bCurrentChar, removeAccent);
 
   if (aCharIndex !== bCharIndex) {
     return compareNumber(aCharIndex, bCharIndex);
