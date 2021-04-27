@@ -19,10 +19,10 @@ const removeForeignCharacters = (text: string) => {
   return cleaned;
 };
 
-const cache = {};
+const cache = new Map<string, string>();
 
 const clean = (text: string) => {
-  const cachedValue = cache[text];
+  const cachedValue = cache.get(text);
 
   if (cachedValue !== undefined) {
     return cachedValue;
@@ -32,7 +32,7 @@ const clean = (text: string) => {
     replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase()))
   );
 
-  cache[text] = result;
+  cache.set(text, result);
 
   return result;
 };
