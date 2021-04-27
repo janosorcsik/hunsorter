@@ -3,8 +3,9 @@
 	"description": "Sorting text with the Hungarian spelling rules",
 	"version": "1.1.1",
 	"source": "src/main.ts",
-	"main": "dist/main.umd.js",
-	"module": "dist/main.modern.module.js",
+	"main": "dist/main.js",
+	"exports": "./dist/main.modern.js",
+	"module": "dist/main.module.js",
 	"unpkg": "dist/main.umd.js",
 	"types": "dist/main.d.ts",
 	"keywords": [
