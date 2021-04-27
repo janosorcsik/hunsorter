@@ -3,11 +3,11 @@ import {foreignChars} from '../mapping';
 
 const pluralConsonants = [...trigraphs, ...digraphs].join('|');
 
-// Clean special characters and replace ssz -> szsz
-const cleanRegex = new RegExp(
-  `(.)(?=\\1)(${pluralConsonants})| |-|\\[|\\]|\\.|\\(|\\)|`,
-  'g'
-);
+const removeSpecialCharacters = (text: string) =>
+  text.replace(/[ \-'`~!@#$%^&*()_|+=?;:",.<>{}[\]\\/]/g, '');
+
+const replaceWithPluralConsonants = (text: string) =>
+  text.replace(new RegExp(`(.)(?=\\1)(${pluralConsonants})`, 'g'), '$2$2');
 
 const removeForeignCharacters = (text: string) => {
   let cleaned = '';
@@ -20,6 +20,8 @@ const removeForeignCharacters = (text: string) => {
 };
 
 const clean = (text: string) =>
-  removeForeignCharacters(text.toUpperCase()).replace(cleanRegex, '$2$2');
+  removeSpecialCharacters(
+    replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase()))
+  );
 
 export default clean;
