@@ -1,6 +1,22 @@
 import test from 'ava';
 import sorting from '../src/main';
 
+test('Rendezés, ha számokat tartalmaz', (t) => {
+  const array = [
+    '1. c.',
+    ' 8.a osztály',
+    '9. b. IV. csoport',
+    '9/c 2. csoport',
+    '11',
+    '12. szak'
+  ];
+
+  const shuffled = shuffle(array);
+  const sorted = shuffled.sort(sorting);
+
+  t.deepEqual(sorted, array);
+});
+
 test('A különböző betűvel kezdődő szavakat az első betűk ábécébeli helye szerint állítjuk rendbe, illetőleg keressük meg.', (t) => {
   const array = [
     'acél',
