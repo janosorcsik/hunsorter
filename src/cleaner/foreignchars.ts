@@ -1,40 +1,40 @@
-import {digraphs, trigraphs} from '../constant';
-import {foreignChars} from '../mapping';
+import { digraphs, trigraphs } from '../constant';
+import { foreignChars } from '../mapping';
 
 const pluralConsonants = [...trigraphs, ...digraphs].join('|');
 
 const removeSpecialCharacters = (text: string) =>
-  text.replace(/[ \-'`~!@#$%^&*()_|+=?;:",.<>{}[\]\\/]/g, '');
+	text.replace(/[ \-'`~!@#$%^&*()_|+=?;:",.<>{}[\]\\/]/g, '');
 
 const replaceWithPluralConsonants = (text: string) =>
-  text.replace(new RegExp(`(.)(?=\\1)(${pluralConsonants})`, 'g'), '$2$2');
+	text.replace(new RegExp(`(.)(?=\\1)(${pluralConsonants})`, 'g'), '$2$2');
 
 const removeForeignCharacters = (text: string) => {
-  let cleaned = '';
+	let cleaned = '';
 
-  for (const char of text) {
-    cleaned += foreignChars[char] || char;
-  }
+	for (const char of text) {
+		cleaned += foreignChars[char] ?? char;
+	}
 
-  return cleaned;
+	return cleaned;
 };
 
 const cache = new Map<string, string>();
 
 const clean = (text: string) => {
-  const cachedValue = cache.get(text);
+	const cachedValue = cache.get(text);
 
-  if (cachedValue !== undefined) {
-    return cachedValue;
-  }
+	if (cachedValue !== undefined) {
+		return cachedValue;
+	}
 
-  const result = removeSpecialCharacters(
-    replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase()))
-  );
+	const result = removeSpecialCharacters(
+		replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase()))
+	);
 
-  cache.set(text, result);
+	cache.set(text, result);
 
-  return result;
+	return result;
 };
 
 export default clean;

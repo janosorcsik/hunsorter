@@ -1,13 +1,13 @@
-import {accents} from '../mapping';
+import { accents } from '../mapping';
 
 const clean = (text: string) => {
-  let cleaned = '';
+	let cleaned = '';
 
-  for (const char of text) {
-    cleaned += accents[char] || char;
-  }
+	for (const char of text) {
+		cleaned += accents[char] ?? char;
+	}
 
-  return cleaned;
+	return cleaned;
 };
 
 export default clean;
