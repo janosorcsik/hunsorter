@@ -1,62 +1,59 @@
 {
 	"name": "hunsorter",
-	"description": "Sorting text with the Hungarian spelling rules",
 	"version": "2.0.1",
-	"source": "src/main.ts",
-	"main": "dist/main.js",
-	"exports": "./dist/main.modern.js",
-	"module": "dist/main.module.js",
-	"unpkg": "dist/main.umd.js",
-	"types": "dist/main.d.ts",
-	"sideEffects": false,
+	"description": "Sorting text with the Hungarian spelling rules",
 	"keywords": [
 		"hungarian",
 		"sort",
 		"typescript"
 	],
+	"homepage": "https://github.com/janosorcsik/hunsorter#readme",
+	"bugs": {
+		"url": "https://github.com/janosorcsik/hunsorter/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/janosorcsik/hunsorter.git"
+	},
+	"license": "MIT",
+	"author": "János Orcsik",
+	"sideEffects": false,
+	"exports": "./dist/main.modern.js",
+	"main": "dist/main.js",
+	"unpkg": "dist/main.umd.js",
+	"module": "dist/main.module.js",
+	"source": "src/main.ts",
+	"types": "dist/main.d.ts",
 	"files": [
 		"dist/**.js*",
 		"dist/**/*.ts"
 	],
 	"scripts": {
 		"build": "microbundle",
-		"test": "ava",
-		"lint": "xo src test",
-		"format": "xo src test --fix",
+		"format": "prettier --write \"**/*.{js,json,md,ts,yml}\"",
+		"lint": "eslint \"**/*.ts\"",
 		"prepack": "rm -rf dist && yarn build",
-		"release": "yarn prepack && np"
+		"release": "yarn prepack && np",
+		"test": "jest"
 	},
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"microbundle": "^0.13.0",
+		"@types/jest": "^26.0.24",
+		"@typescript-eslint/eslint-plugin": "^4.29.1",
+		"@typescript-eslint/parser": "^4.29.1",
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-config-xo": "^0.38.0",
+		"eslint-config-xo-typescript": "^0.44.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"jest": "^27.0.6",
+		"microbundle": "^0.13.3",
 		"np": "^7.5.0",
-		"ts-node": "^9.1.1",
-		"typescript": "^4.2.4",
-		"xo": "^0.39.1"
+		"prettier": "^2.3.2",
+		"prettier-plugin-sorted": "^2.0.0",
+		"ts-jest": "^27.0.4",
+		"typescript": "^4.3.5"
 	},
-	"xo": {
-		"prettier": true,
-		"space": true
-	},
-	"ava": {
-		"extensions": [
-			"ts"
-		],
-		"require": [
-			"ts-node/register/transpile-only"
-		]
-	},
-	"license": "MIT",
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/janosorcsik/hunsorter.git"
-	},
-	"author": "János Orcsik",
-	"bugs": {
-		"url": "https://github.com/janosorcsik/hunsorter/issues"
-	},
-	"homepage": "https://github.com/janosorcsik/hunsorter#readme"
+	}
 }
