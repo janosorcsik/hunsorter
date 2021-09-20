@@ -259,6 +259,15 @@ A régies írású magyar családnevekben levő kétjegyű betűket elemeikre bo
 	expect(sorted).toEqual(array);
 });
 
+test(`Null és undefined a végén legyen`, () => {
+	const array = ['alma', 'Béla', 'cékla', null, undefined];
+
+	const shuffled = shuffle(array);
+	const sorted = shuffled.sort(sorting);
+
+	expect(sorted).toEqual(array);
+});
+
 const shuffle = <T>(array: T[]) => {
 	const copy = [...array];
 

@@ -4,8 +4,28 @@ import cleanForeignChars from './cleaner/foreignchars';
 import compareNumber from './comparer/number';
 import compareText from './comparer/text';
 
-const sorting = (a: string, b: string) => {
+const sorting = (
+	a: string | undefined | null,
+	b: string | undefined | null
+) => {
+	const aIsNullOrUndefined = isNullOrUndefined(a);
+	const bIsNullOrUndefined = isNullOrUndefined(b);
+
+	if (aIsNullOrUndefined && bIsNullOrUndefined) {
+		return 0;
+	}
+
+	if (aIsNullOrUndefined) {
+		return 1;
+	}
+
+	if (bIsNullOrUndefined) {
+		return -1;
+	}
+
 	let removeAccent = false;
+	a = a!;
+	b = b!;
 
 	const cleanedA = cleanForeignChars(a);
 	const cleanedB = cleanForeignChars(b);
@@ -28,6 +48,10 @@ const sorting = (a: string, b: string) => {
 		aIndex: 0,
 		bIndex: 0,
 	});
+};
+
+const isNullOrUndefined = (value: string | null | undefined) => {
+	return value === null || typeof value === 'undefined';
 };
 
 export default sorting;
