@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 const accents: Record<string, string> = {
 	Á: 'A',
 	É: 'E',
