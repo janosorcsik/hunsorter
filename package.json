@@ -19,11 +19,11 @@
 	"author": "János Orcsik",
 	"funding": "https://github.com/janosorcsik/hunsorter?sponsor=1",
 	"sideEffects": false,
-  "main": "dist/main.umd.js",
-  "unpkg": "dist/main.umd.js",
-  "module": "dist/main.modern.module.js",
-  "source": "src/main.ts",
-  "types": "dist/main.d.ts",
+	"main": "dist/main.umd.js",
+	"unpkg": "dist/main.umd.js",
+	"module": "dist/main.modern.module.js",
+	"source": "src/main.ts",
+	"types": "dist/main.d.ts",
 	"files": [
 		"dist/**.js*",
 		"dist/**/*.ts"
