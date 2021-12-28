@@ -1,3 +1,5 @@
+import { expect, test } from 'vitest';
+
 import sorting from '../src/main';
 
 test('Rendezés, ha számokat tartalmaz', () => {
