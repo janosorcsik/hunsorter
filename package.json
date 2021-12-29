@@ -52,7 +52,7 @@
 		"np": "^7.6.0",
 		"prettier": "^2.5.1",
 		"prettier-plugin-sorted": "^2.0.0",
-		"vite": "^2.7.8",
+		"vite": "^2.7.9",
 		"vitest": "^0.0.119",
 		"typescript": "^4.5.4"
 	},
