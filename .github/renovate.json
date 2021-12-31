@@ -1,5 +1,9 @@
 {
-	"extends": [
-		"config:base"
-	]
+	"extends": ["config:base"],
+	"schedule": ["after 1pm on friday"],
+	"timezone": "Europe/Budapest",
+	"labels": ["dependencies"],
+	"reviewers": ["janosorcsik"],
+	"pin": false,
+	"lockFileMaintenance": { "enabled": true }
 }
