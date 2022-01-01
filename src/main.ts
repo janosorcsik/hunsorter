@@ -1,10 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import getIndex from './characterindex';
 import cleanAccent from './cleaner/accent';
 import cleanForeignChars from './cleaner/foreignchars';
 import compareNumber from './comparer/number';
 import compareText from './comparer/text';
 
-const sorting = (a?: string, b?: string) => {
+const sorting = (
+	a: string | undefined | null,
+	b: string | undefined | null
+) => {
 	const aIsNullOrUndefined = isNullOrUndefined(a);
 	const bIsNullOrUndefined = isNullOrUndefined(b);
 
@@ -47,7 +51,7 @@ const sorting = (a?: string, b?: string) => {
 	});
 };
 
-const isNullOrUndefined = (value: string | undefined | undefined) => {
+const isNullOrUndefined = (value: string | null | undefined) => {
 	return value === null || typeof value === 'undefined';
 };
 
