@@ -4,5 +4,5 @@ module.exports = {
 	tabWidth: 2,
 	semi: true,
 	arrowParens: 'always',
-	plugins: ['prettier-plugin-sorted'],
+	plugins: ['prettier-plugin-organize-imports'],
 };

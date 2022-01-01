@@ -1,9 +1,25 @@
 {
 	"extends": ["config:base"],
-	"schedule": ["after 1pm on friday"],
+	"schedule": ["after 8am and before 4pm on friday"],
 	"timezone": "Europe/Budapest",
 	"labels": ["dependencies"],
 	"reviewers": ["janosorcsik"],
+	"lockFileMaintenance": { "enabled": true },
 	"pin": false,
-	"lockFileMaintenance": { "enabled": true }
+	"rangeStrategy": "replace",
+	"ignorePresets": ["workarounds:typesNodeVersioning"],
+	"packageRules": [
+		{
+			"matchPackagePatterns": ["*"],
+			"matchUpdateTypes": ["minor", "patch"],
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-minor-patch"
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"groupName": "all devDependencies",
+			"groupSlug": "all-dev-dependencies",
+			"rangeStrategy": "bump"
+		}
+	]
 }

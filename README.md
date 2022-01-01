@@ -34,7 +34,11 @@ fruits.sort((a, b) => sorting(b, a));
 ```javascript
 import sorting from hunsorter;
 
-const fruits = [{ name: 'narancs' }, { name: 'alma' }, { name: 'körte' }];
+const fruits = [
+  { name: 'narancs' },
+  { name: 'alma' },
+  { name: 'körte' }
+];
 
 fruits.sort((a, b) => sorting(a.name, b.name));
 ```
@@ -45,9 +49,9 @@ fruits.sort((a, b) => sorting(a.name, b.name));
 import sorting from hunsorter;
 
 const fruits = [
- { name: 'narancs', color: 'sárga' },
- { name: 'alma', color: 'piros' },
- { name: 'körte', color: 'sárga' },
+  { name: 'narancs', color: 'sárga' },
+  { name: 'alma', color: 'piros' },
+  { name: 'körte', color: 'sárga' },
 ];
 
 fruits.sort((a, b) => sorting(a.color, b.color) || sorting(a.name, b.name));
