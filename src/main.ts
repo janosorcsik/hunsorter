@@ -4,10 +4,7 @@ import cleanForeignChars from './cleaner/foreignchars';
 import compareNumber from './comparer/number';
 import compareText from './comparer/text';
 
-const sorting = (
-	a: string | undefined | null,
-	b: string | undefined | null
-) => {
+const sorting = (a?: string, b?: string) => {
 	const aIsNullOrUndefined = isNullOrUndefined(a);
 	const bIsNullOrUndefined = isNullOrUndefined(b);
 
@@ -50,7 +47,7 @@ const sorting = (
 	});
 };
 
-const isNullOrUndefined = (value: string | null | undefined) => {
+const isNullOrUndefined = (value: string | undefined | undefined) => {
 	return value === null || typeof value === 'undefined';
 };
 

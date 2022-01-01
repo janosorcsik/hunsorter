@@ -2,10 +2,10 @@
 *.log
 
 # Dependency directories
-node_modules
+node_modules/
 
 # Generated directories
-dist
+dist/
 
 # OS files
 .DS_Store
