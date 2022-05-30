@@ -4,7 +4,7 @@ import { foreignChars } from '../mapping';
 const pluralConsonants = [...trigraphs, ...digraphs].join('|');
 
 const removeSpecialCharacters = (text: string) =>
-	text.replace(/[-\ '`~!@#$%^&*()_|+=?;:",.<>{}[\]/]/g, '');
+	text.replace(/[-\\ '`~!@#$%^&*()_|+=?;:",.<>{}[\]/]/g, '');
 
 const replaceWithPluralConsonants = (text: string) =>
 	text.replace(new RegExp(`(.)(?=\\1)(${pluralConsonants})`, 'g'), '$2$2');
