@@ -41,9 +41,9 @@
 		"test": "vitest --run"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^5.26.0",
-		"@typescript-eslint/parser": "^5.26.0",
-		"eslint": "^8.16.0",
+		"@typescript-eslint/eslint-plugin": "^5.27.0",
+		"@typescript-eslint/parser": "^5.27.0",
+		"eslint": "^8.17.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-config-xo": "^0.41.0",
 		"eslint-config-xo-typescript": "^0.51.1",
@@ -52,9 +52,9 @@
 		"np": "^7.6.1",
 		"prettier": "^2.6.2",
 		"prettier-plugin-organize-imports": "^2.3.4",
-		"typescript": "^4.7.2",
+		"typescript": "^4.7.3",
 		"vite": "^2.9.9",
-		"vitest": "^0.12.9"
+		"vitest": "^0.13.1"
 	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org"
