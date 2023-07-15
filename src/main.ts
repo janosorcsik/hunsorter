@@ -7,7 +7,7 @@ import compareText from './comparer/text';
 
 const sorting = (
 	a: string | undefined | null,
-	b: string | undefined | null
+	b: string | undefined | null,
 ) => {
 	const aIsNullOrUndefined = isNullOrUndefined(a);
 	const bIsNullOrUndefined = isNullOrUndefined(b);
