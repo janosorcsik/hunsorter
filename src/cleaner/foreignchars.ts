@@ -29,7 +29,7 @@ const clean = (text: string) => {
 	}
 
 	const result = removeSpecialCharacters(
-		replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase()))
+		replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase())),
 	);
 
 	cache.set(text, result);
