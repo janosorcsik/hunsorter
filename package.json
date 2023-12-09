@@ -49,12 +49,12 @@
 		"eslint-config-xo-typescript": "^1.0.1",
 		"eslint-plugin-prettier": "^5.0.1",
 		"microbundle": "^0.15.1",
-		"np": "^9.1.0",
+		"np": "^9.2.0",
 		"prettier": "^3.1.0",
 		"prettier-plugin-organize-imports": "^3.2.4",
 		"typescript": "^5.3.3",
-		"vite": "^5.0.6",
-		"vitest": "^1.0.2"
+		"vite": "^5.0.7",
+		"vitest": "^1.0.4"
 	},
 	"publishConfig": {
 		"registry": "https://registry.npmjs.org"
