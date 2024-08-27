@@ -34,8 +34,8 @@
 	],
 	"scripts": {
 		"build": "microbundle",
-		"format": "prettier --write \"**/*.{js,json,md,ts,yml}\"",
-		"lint": "eslint \"**/*.ts\"",
+		"format": "prettier --write \"**/*.{js,json,md,mjs,mts,ts,yml}\"",
+		"lint": "eslint",
 		"prepack": "rm -rf dist && yarn build",
 		"release": "yarn prepack && np",
 		"test": "vitest --run"
@@ -45,7 +45,6 @@
 		"@typescript-eslint/parser": "^8.3.0",
 		"eslint": "^9.9.1",
 		"eslint-config-prettier": "^9.1.0",
-		"eslint-config-xo": "^0.46.0",
 		"eslint-config-xo-typescript": "^6.0.0",
 		"eslint-plugin-prettier": "^5.2.1",
 		"microbundle": "^0.15.1",
