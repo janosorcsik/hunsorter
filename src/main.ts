@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-restricted-types */
 import getIndex from './characterindex';
 import cleanAccent from './cleaner/accent';
 import cleanForeignChars from './cleaner/foreignchars';
