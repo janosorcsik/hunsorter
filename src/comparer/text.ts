@@ -38,17 +38,21 @@ const getCharAndShift = (text: string, index: number) => {
 		}
 	}
 
-	return { shift, char, number, isNumber };
+	return {
+		shift,
+		char,
+		number,
+		isNumber,
+	};
 };
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-interface TextCompareData {
+type TextCompareData = {
 	a: string;
 	b: string;
 	removeAccent: boolean;
 	aIndex: number;
 	bIndex: number;
-}
+};
 
 const compare = ({
 	a,
