@@ -3,12 +3,14 @@ import sorting from '../src/main';
 
 test('Rendezés, ha számokat tartalmaz', () => {
 	const array = [
+		'0',
 		'1. c.',
 		' 8.a osztály',
 		'9. b. IV. csoport',
 		'9/c 2. csoport',
 		'11',
 		'12. szak',
+		'a',
 	];
 
 	const shuffled = shuffle(array);
