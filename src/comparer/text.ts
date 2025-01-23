@@ -75,10 +75,11 @@ const compare = ({
 		isNumber: bIsNumber,
 	} = getCharAndShift(b, bIndex);
 
-	// make sure numbers come before letters
-	if (aIsNumber != bIsNumber) {
-		return compareNumber(Number(!aIsNumber), Number(!bIsNumber))
+	// Make sure numbers come before letters
+	if (aIsNumber !== bIsNumber) {
+		return compareNumber(Number(!aIsNumber), Number(!bIsNumber));
 	}
+
 	const aCharIndex = aIsNumber ? aNumber : getIndex(aCurrentChar, removeAccent);
 	const bCharIndex = bIsNumber ? bNumber : getIndex(bCurrentChar, removeAccent);
 
