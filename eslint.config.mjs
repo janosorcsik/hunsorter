@@ -3,7 +3,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default [
 	{
-		ignores: ['dist/', 'eslint.config.mjs', '**/*.js'],
+		ignores: ['dist/', 'eslint.config.mjs', '.prettierrc.cjs'],
 	},
 	...xoTypeScript,
 	{
