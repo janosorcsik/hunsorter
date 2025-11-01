@@ -42,11 +42,11 @@
 		"test": "vitest --run"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.4",
+		"@biomejs/biome": "2.3.2",
 		"microbundle": "^0.15.1",
 		"np": "^10.2.0",
 		"typescript": "^5.9.3",
-		"vite": "^7.1.7",
+		"vite": "^7.1.12",
 		"vitest": "^3.2.4"
 	},
 	"publishConfig": {
