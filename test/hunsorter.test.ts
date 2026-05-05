@@ -7,6 +7,7 @@ test('Rendezés, ha számokat tartalmaz', () => {
 		'1. c.',
 		' 8.a osztály',
 		'9. b. IV. csoport',
+		'9. b. V. csoport',
 		'9/c 2. csoport',
 		'11',
 		'12. szak',
@@ -24,6 +25,7 @@ test('A különböző betűvel kezdődő szavakat az első betűk ábécébeli h
 		'acél',
 		'cukor',
 		'csók',
+		'dzsungel',
 		'gép',
 		'hideg',
 		'kettő',
@@ -238,6 +240,7 @@ A régies írású magyar családnevekben levő kétjegyű betűket elemeikre bo
 		'cukor',
 		'Czuczor',
 		'csapat',
+		'Ðan',
 		'Gaal',
 		'galamb',
 		'Gärtner',
@@ -246,6 +249,7 @@ A régies írású magyar családnevekben levő kétjegyű betűket elemeikre bo
 		'Georges',
 		'góc',
 		'Goethe',
+		'Łódź',
 		'moshat',
 		'mosna',
 		'Mošna',
@@ -254,6 +258,8 @@ A régies írású magyar családnevekben levő kétjegyű betűket elemeikre bo
 		'mostan',
 		'munka',
 		'Muñoz',
+		'Þór',
+		'Žaba',
 	];
 
 	const shuffled = shuffle(array);
