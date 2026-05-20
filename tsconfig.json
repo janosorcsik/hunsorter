@@ -5,7 +5,7 @@
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
 		"module": "ESNext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"newLine": "lf",
 		"noEmitOnError": true,
 		"noFallthroughCasesInSwitch": true,
