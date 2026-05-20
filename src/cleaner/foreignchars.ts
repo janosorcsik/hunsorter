@@ -19,22 +19,9 @@ const removeForeignCharacters = (text: string) => {
 	return cleaned;
 };
 
-const cache = new Map<string, string>();
-
-const clean = (text: string) => {
-	const cachedValue = cache.get(text);
-
-	if (cachedValue !== undefined) {
-		return cachedValue;
-	}
-
-	const result = removeSpecialCharacters(
+const clean = (text: string) =>
+	removeSpecialCharacters(
 		replaceWithPluralConsonants(removeForeignCharacters(text.toUpperCase())),
 	);
-
-	cache.set(text, result);
-
-	return result;
-};
 
 export default clean;
