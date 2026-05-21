@@ -1,8 +1,7 @@
-import getIndex from './characterindex';
 import cleanAccent from './cleaner/accent';
 import cleanForeignChars from './cleaner/foreignchars';
-import compareNumber from './comparer/number';
 import compareText from './comparer/text';
+import { foreignChars } from './mapping';
 
 const sorting = (
 	a: string | undefined | null,
@@ -20,10 +19,27 @@ const sorting = (
 	const cleanedB = cleanForeignChars(b);
 
 	if (cleanedA === cleanedB) {
-		const aFirstChar = getIndex(a.charAt(0), false);
-		const bFirstChar = getIndex(b.charAt(0), false);
+		const aUpper = a.toUpperCase();
+		const bUpper = b.toUpperCase();
+		const len = Math.min(a.length, b.length);
 
-		return compareNumber(aFirstChar, bFirstChar);
+		for (let i = 0; i < len; i++) {
+			const aIsForeign = aUpper.charAt(i) in foreignChars;
+			const bIsForeign = bUpper.charAt(i) in foreignChars;
+
+			if (aIsForeign !== bIsForeign) {
+				return aIsForeign ? 1 : -1;
+			}
+		}
+
+		const aFirstIsUpper = a.charAt(0) === aUpper.charAt(0);
+		const bFirstIsUpper = b.charAt(0) === bUpper.charAt(0);
+
+		if (aFirstIsUpper !== bFirstIsUpper) {
+			return aFirstIsUpper ? 1 : -1;
+		}
+
+		return 0;
 	}
 
 	const removeAccent = cleanAccent(cleanedA) !== cleanAccent(cleanedB);

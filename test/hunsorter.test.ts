@@ -296,6 +296,15 @@ test('Ismeretlen karakterrel való rendezés', () => {
 	expect(sorted).toEqual(array);
 });
 
+test('Idegen mellékjeles szó hátrább kerül, ha csak abban különböznek', () => {
+	const array = ['mosna', 'mošna'];
+
+	const shuffled = shuffle(array);
+	const sorted = shuffled.sort(sorting);
+
+	expect(sorted).toEqual(array);
+});
+
 const shuffle = <T>(array: T[]) => {
 	const copy = [...array];
 
