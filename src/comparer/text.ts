@@ -50,7 +50,7 @@ const compare = (a: string, b: string, removeAccent: boolean): number => {
 	let aIndex = 0;
 	let bIndex = 0;
 
-	while (aIndex < a.length || bIndex < b.length) {
+	while (aIndex < a.length && bIndex < b.length) {
 		const {
 			shift: aShift,
 			char: aCurrentChar,
@@ -89,7 +89,11 @@ const compare = (a: string, b: string, removeAccent: boolean): number => {
 		bIndex += bShift;
 	}
 
-	return 0;
+	if (aIndex >= a.length && bIndex >= b.length) {
+		return 0;
+	}
+
+	return aIndex >= a.length ? -1 : 1;
 };
 
 export default compare;
