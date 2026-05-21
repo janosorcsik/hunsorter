@@ -28,13 +28,7 @@ const sorting = (
 
 	const removeAccent = cleanAccent(cleanedA) !== cleanAccent(cleanedB);
 
-	return compareText({
-		a: cleanedA,
-		b: cleanedB,
-		removeAccent,
-		aIndex: 0,
-		bIndex: 0,
-	});
+	return compareText(cleanedA, cleanedB, removeAccent);
 };
 
 const isNullOrUndefined = (value: string | null | undefined) => {

@@ -277,6 +277,15 @@ test(`Null és undefined a végén legyen`, () => {
 	expect(sorted).toEqual(array);
 });
 
+test('Azonos értékű, de eltérő hosszú számok rendezése', () => {
+	const array = ['0', '00', '000', '0000'];
+
+	const shuffled = shuffle(array);
+	const sorted = shuffled.sort(sorting);
+
+	expect(sorted).toEqual(array);
+});
+
 const shuffle = <T>(array: T[]) => {
 	const copy = [...array];
 

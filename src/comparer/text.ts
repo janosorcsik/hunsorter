@@ -46,54 +46,50 @@ const getCharAndShift = (text: string, index: number) => {
 	};
 };
 
-type TextCompareData = {
-	a: string;
-	b: string;
-	removeAccent: boolean;
-	aIndex: number;
-	bIndex: number;
-};
+const compare = (a: string, b: string, removeAccent: boolean): number => {
+	let aIndex = 0;
+	let bIndex = 0;
 
-const compare = ({
-	a,
-	b,
-	removeAccent,
-	aIndex,
-	bIndex,
-}: TextCompareData): number => {
-	const {
-		shift: aShift,
-		char: aCurrentChar,
-		number: aNumber,
-		isNumber: aIsNumber,
-	} = getCharAndShift(a, aIndex);
+	while (aIndex < a.length || bIndex < b.length) {
+		const {
+			shift: aShift,
+			char: aCurrentChar,
+			number: aNumber,
+			isNumber: aIsNumber,
+		} = getCharAndShift(a, aIndex);
 
-	const {
-		shift: bShift,
-		char: bCurrentChar,
-		number: bNumber,
-		isNumber: bIsNumber,
-	} = getCharAndShift(b, bIndex);
+		const {
+			shift: bShift,
+			char: bCurrentChar,
+			number: bNumber,
+			isNumber: bIsNumber,
+		} = getCharAndShift(b, bIndex);
 
-	// Make sure numbers come before letters
-	if (aIsNumber !== bIsNumber) {
-		return compareNumber(Number(!aIsNumber), Number(!bIsNumber));
+		// Make sure numbers come before letters
+		if (aIsNumber !== bIsNumber) {
+			return compareNumber(Number(!aIsNumber), Number(!bIsNumber));
+		}
+
+		const aCharIndex = aIsNumber
+			? aNumber
+			: getIndex(aCurrentChar, removeAccent);
+		const bCharIndex = bIsNumber
+			? bNumber
+			: getIndex(bCurrentChar, removeAccent);
+
+		if (aCharIndex !== bCharIndex) {
+			return compareNumber(aCharIndex, bCharIndex);
+		}
+
+		if (aIsNumber && aShift !== bShift) {
+			return compareNumber(aShift, bShift);
+		}
+
+		aIndex += aShift;
+		bIndex += bShift;
 	}
 
-	const aCharIndex = aIsNumber ? aNumber : getIndex(aCurrentChar, removeAccent);
-	const bCharIndex = bIsNumber ? bNumber : getIndex(bCurrentChar, removeAccent);
-
-	if (aCharIndex !== bCharIndex) {
-		return compareNumber(aCharIndex, bCharIndex);
-	}
-
-	return compare({
-		a,
-		b,
-		removeAccent,
-		aIndex: aIndex + aShift,
-		bIndex: bIndex + bShift,
-	});
+	return 0;
 };
 
 export default compare;
