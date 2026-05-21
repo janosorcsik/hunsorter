@@ -241,6 +241,7 @@ A régies írású magyar családnevekben levő kétjegyű betűket elemeikre bo
 		'Czuczor',
 		'csapat',
 		'Ðan',
+		'ǅupiter',
 		'Gaal',
 		'galamb',
 		'Gärtner',

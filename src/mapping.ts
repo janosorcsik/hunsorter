@@ -25,7 +25,7 @@ const foreignChars: Record<string, string> = {
 	// D
 	Ď: 'D',
 	Ð: 'D',
-	ǅ: 'D',
+	Ǆ: 'D',
 	Đ: 'D',
 	// E
 	È: 'E',
@@ -45,14 +45,14 @@ const foreignChars: Record<string, string> = {
 	// L
 	Ĺ: 'L',
 	Ľ: 'L',
-	ǈ: 'L',
+	Ǉ: 'L',
 	Ł: 'L',
 	Ḷ: 'L',
 	Ḹ: 'L',
 	// N
 	Ň: 'N',
 	Ñ: 'N',
-	ǋ: 'N',
+	Ǌ: 'N',
 	// O
 	Ò: 'O',
 	Ô: 'O',
