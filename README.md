@@ -11,7 +11,7 @@ Sorting text with the [Hungarian spelling rules](https://helyesiras.mta.hu/helye
 ### Simple sorting (ascending)
 
 ```javascript
-import sorting from hunsorter;
+import sorting from 'hunsorter';
 
 const fruits = ['narancs', 'alma', 'körte'];
 
@@ -21,7 +21,7 @@ fruits.sort(sorting);
 ### Simple sorting (descending)
 
 ```javascript
-import sorting from hunsorter;
+import sorting from 'hunsorter';
 
 const fruits = ['narancs', 'alma', 'körte'];
 
@@ -32,7 +32,7 @@ fruits.sort((a, b) => sorting(b, a));
 ### Sorting with key
 
 ```javascript
-import sorting from hunsorter;
+import sorting from 'hunsorter';
 
 const fruits = [
   { name: 'narancs' },
@@ -46,7 +46,7 @@ fruits.sort((a, b) => sorting(a.name, b.name));
 ### Sorting with multiple keys
 
 ```javascript
-import sorting from hunsorter;
+import sorting from 'hunsorter';
 
 const fruits = [
   { name: 'narancs', color: 'sárga' },

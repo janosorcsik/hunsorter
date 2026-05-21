@@ -1,7 +1,5 @@
-import cleanAccent from './cleaner/accent';
-import cleanForeignChars from './cleaner/foreignchars';
-import compareText from './comparer/text';
-import { foreignChars } from './mapping';
+import { compareEqualTexts, compareNotEqualTexts } from './comparers';
+import { normalizeAccent, normalizeText } from './normalizers';
 
 const sorting = (
 	a: string | undefined | null,
@@ -15,36 +13,16 @@ const sorting = (
 		return -1;
 	}
 
-	const cleanedA = cleanForeignChars(a);
-	const cleanedB = cleanForeignChars(b);
+	const cleanedA = normalizeText(a);
+	const cleanedB = normalizeText(b);
 
 	if (cleanedA === cleanedB) {
-		const aUpper = a.toUpperCase();
-		const bUpper = b.toUpperCase();
-		const len = Math.min(a.length, b.length);
-
-		for (let i = 0; i < len; i++) {
-			const aIsForeign = aUpper.charAt(i) in foreignChars;
-			const bIsForeign = bUpper.charAt(i) in foreignChars;
-
-			if (aIsForeign !== bIsForeign) {
-				return aIsForeign ? 1 : -1;
-			}
-		}
-
-		const aFirstIsUpper = a.charAt(0) === aUpper.charAt(0);
-		const bFirstIsUpper = b.charAt(0) === bUpper.charAt(0);
-
-		if (aFirstIsUpper !== bFirstIsUpper) {
-			return aFirstIsUpper ? 1 : -1;
-		}
-
-		return 0;
+		return compareEqualTexts(a, b);
 	}
 
-	const removeAccent = cleanAccent(cleanedA) !== cleanAccent(cleanedB);
+	const ignoreAccent = normalizeAccent(cleanedA) !== normalizeAccent(cleanedB);
 
-	return compareText(cleanedA, cleanedB, removeAccent);
+	return compareNotEqualTexts(cleanedA, cleanedB, ignoreAccent);
 };
 
 const isNullOrUndefined = (value: string | null | undefined) => {
