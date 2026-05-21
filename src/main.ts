@@ -8,38 +8,25 @@ const sorting = (
 	a: string | undefined | null,
 	b: string | undefined | null,
 ) => {
-	const aIsNullOrUndefined = isNullOrUndefined(a);
-	const bIsNullOrUndefined = isNullOrUndefined(b);
-
-	if (aIsNullOrUndefined && bIsNullOrUndefined) {
-		return 0;
+	if (isNullOrUndefined(a)) {
+		return isNullOrUndefined(b) ? 0 : 1;
 	}
 
-	if (aIsNullOrUndefined) {
-		return 1;
-	}
-
-	if (bIsNullOrUndefined) {
+	if (isNullOrUndefined(b)) {
 		return -1;
 	}
-
-	let removeAccent = false;
-	a = a!;
-	b = b!;
 
 	const cleanedA = cleanForeignChars(a);
 	const cleanedB = cleanForeignChars(b);
 
 	if (cleanedA === cleanedB) {
-		const aFirstChar = getIndex(a.charAt(0), removeAccent);
-		const bFirstChar = getIndex(b.charAt(0), removeAccent);
+		const aFirstChar = getIndex(a.charAt(0), false);
+		const bFirstChar = getIndex(b.charAt(0), false);
 
 		return compareNumber(aFirstChar, bFirstChar);
 	}
 
-	if (cleanAccent(cleanedA) !== cleanAccent(cleanedB)) {
-		removeAccent = true;
-	}
+	const removeAccent = cleanAccent(cleanedA) !== cleanAccent(cleanedB);
 
 	return compareText({
 		a: cleanedA,
