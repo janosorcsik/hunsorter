@@ -1,4 +1,6 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"include": ["src/**/*.ts"],
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
 		"declaration": true,
@@ -15,6 +17,7 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"skipLibCheck": true,
 		"strict": true,
 		"target": "ESNext"
 	}

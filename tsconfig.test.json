@@ -1,0 +1,10 @@
+{
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"extends": "./tsconfig.json",
+	"include": ["test/**/*.ts"],
+	"compilerOptions": {
+		"types": ["vitest/globals"],
+		"noUnusedLocals": false,
+		"noUnusedParameters": false
+	}
+}
