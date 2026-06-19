@@ -1,11 +1,11 @@
 {
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
 	"extends": ["config:base"],
 	"schedule": ["on the first day of the month"],
 	"timezone": "Europe/Budapest",
 	"labels": ["dependencies"],
 	"reviewers": ["janosorcsik"],
 	"lockFileMaintenance": { "enabled": true },
-	"pin": false,
 	"rangeStrategy": "replace",
 	"ignorePresets": ["workarounds:typesNodeVersioning"],
 	"packageRules": [
